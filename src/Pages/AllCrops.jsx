@@ -92,65 +92,90 @@ export default function AllCrops() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-14">
-      {/* Header + Filters */}
-      <div className="flex flex-col md:flex-row  items-center gap-4 mb-10">
-        <h2 className="text-3xl font-bold text-gray-600">
-          🌾 All Crops <span className="text-sky-500">({crops.length})</span>
-        </h2>
-        <div className="relative w-full sm:w-64">
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search..."
-            className="input input-bordered w-full pl-10"
-          />
-          <FaSearch className="absolute left-3 top-3 text-gray-400" />
-        </div>
+      <div className="grid lg:grid-cols-4 gap-10">
+        {/* ================= Sidebar ================= */}
+        <aside className="lg:col-span-1 bg-white shadow-md border border-gray-100 rounded-xl p-6 h-fit">
+          {/* Title */}
+          <h2 className="text-2xl font-bold text-gray-700 mb-6">
+            🔍 Filter Crops
+          </h2>
 
-        <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
           {/* Search */}
+          <div className="relative mb-6">
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search crop..."
+              className="input input-bordered w-full pl-10"
+            />
+            <FaSearch className="absolute left-3 top-3 text-gray-400" />
+          </div>
 
-          {/* Type Filter */}
-          <select
-            value={filterType}
-            onChange={(e) => setFilterType(e.target.value)}
-            className="select select-bordered"
-          >
-            <option value="All">All Types</option>
-            <option value="Vegetable">Vegetable</option>
-            <option value="Fruit">Fruit</option>
-            <option value="Grain">Grain</option>
-            <option value="Pulse">Pulse</option>
-            <option value="Other">Other</option>
-          </select>
+          {/* Category Filter */}
+          <h3 className="text-lg font-semibold text-gray-700 mb-3">Category</h3>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {["All", "Vegetable", "Fruit", "Grain", "Pulse", "Other"].map(
+              (cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setFilterType(cat)}
+                  className={`px-4 py-2 rounded-full border text-sm font-medium transition 
+                ${
+                  filterType === cat
+                    ? "bg-sky-600 text-white border-sky-700 shadow"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+                >
+                  {cat}
+                </button>
+              )
+            )}
+          </div>
 
           {/* Location Filter */}
+          <h3 className="text-lg font-semibold text-gray-700 mb-3">Location</h3>
           <select
             value={filterLocation}
             onChange={(e) => setFilterLocation(e.target.value)}
-            className="select select-bordered"
+            className="select select-bordered w-full mb-6"
           >
             <option value="All">All Locations</option>
-            {uniqueLocations.map((loc, index) => (
-              <option key={index} value={loc}>
+            {uniqueLocations.map((loc, idx) => (
+              <option key={idx} value={loc}>
                 {loc}
               </option>
             ))}
           </select>
-        </div>
-      </div>
 
-      {/* Crop Grid */}
-      {filteredCrops.length === 0 ? (
-        <div className="text-center py-20 text-gray-500">No crops found.</div>
-      ) : (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredCrops.map((crop) => (
-            <CropCard key={crop._id} crop={crop} />
-          ))}
-        </div>
-      )}
+          {/* Stats Box */}
+          <div className="bg-sky-50 border border-sky-100 rounded-xl p-4 mt-6">
+            <p className="text-gray-700 font-medium mb-2">Total Crops:</p>
+            <p className="text-3xl font-bold text-sky-700">{crops.length}</p>
+          </div>
+        </aside>
+
+        {/* ================= Main Content ================= */}
+        <main className="lg:col-span-3">
+          {/* Header */}
+          <h2 className="text-3xl font-bold text-gray-700 mb-6">
+            All Crops{" "}
+            <span className="text-sky-500">({filteredCrops.length})</span>
+          </h2>
+
+          {filteredCrops.length === 0 ? (
+            <div className="text-center py-20 text-gray-500">
+              No crops found.
+            </div>
+          ) : (
+            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+              {filteredCrops.map((crop) => (
+                <CropCard key={crop._id} crop={crop} />
+              ))}
+            </div>
+          )}
+        </main>
+      </div>
     </section>
   );
 }

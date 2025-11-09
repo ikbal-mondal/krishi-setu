@@ -68,6 +68,16 @@ export default function LatestCrops() {
           <CropCard key={crop._id} crop={crop} />
         ))}
       </div>
+      <div className="flex flex-col justify-center mt-6 items-center">
+        <button className="btn bg-sky-600 hover:bg-sky-700 text-white rounded-full font-semibold shadow-md transition-all ">
+          <Link
+            to="/all-crops"
+            className="text-white text-lg  px-8 py-4  hover:underline"
+          >
+            View All →
+          </Link>
+        </button>
+      </div>
     </section>
   );
 }
