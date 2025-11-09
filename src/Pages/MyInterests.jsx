@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import api from "../services/api";
 import { AuthContext } from "../context/AuthContext";
 
@@ -9,7 +9,7 @@ export default function MyInterests() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [sortBy, setSortBy] = useState("latest");
-
+  const navigate = useNavigate();
   useEffect(() => {
     if (!user) return;
     const fetchInterests = async () => {
@@ -17,7 +17,7 @@ export default function MyInterests() {
         const res = await api.get("/my-interests");
         setInterests(res.data || []);
       } catch (err) {
-        console.error("❌ Error fetching interests:", err);
+        console.error(" Error fetching interests:", err);
         setError("Failed to load interests.");
       } finally {
         setLoading(false);
@@ -63,8 +63,69 @@ export default function MyInterests() {
 
   if (interests.length === 0)
     return (
-      <div className="text-center py-20 text-gray-500">
-        You haven’t shown interest in any crops yet.
+      <div className=" max-w-4xl  mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 py-16">
+        {/* LEFT — Empty State Illustration & CTA */}
+        <div className="flex flex-col mx-4 justify-center text-center md:text-left items-center md:items-start">
+          <h3 className="text-3xl font-semibold text-gray-800 mb-3">
+            No Interests Yet 🌱
+          </h3>
+
+          <p className="text-gray-600 leading-relaxed max-w-md">
+            You haven’t shown interest in any crops yet. Explore available crops
+            and start connecting with farmers today.
+          </p>
+
+          <button
+            onClick={() => navigate("/all-crops")}
+            className="mt-6 px-8 py-3 bg-sky-600 hover:bg-sky-700 text-white rounded-lg shadow-lg transition-all duration-300"
+          >
+            Browse Crops
+          </button>
+        </div>
+
+        {/* RIGHT — Help/Instruction Box */}
+        <div className="bg-white p-6 mx-2 rounded-xl border border-gray-200 shadow-md">
+          <div className="flex gap-4 items-start">
+            {/* Icon */}
+            <div className="p-3 bg-sky-100 rounded-full flex items-center justify-center shadow-sm">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2983/2983781.png"
+                className="w-9"
+                alt="help icon"
+              />
+            </div>
+
+            {/* Content */}
+            <div>
+              <h3 className="text-xl font-bold text-sky-700 mb-2">
+                How to Send Interest?
+              </h3>
+
+              <p className="text-gray-600">Follow these easy steps:</p>
+
+              <ul className="mt-4 space-y-2 text-gray-700">
+                <li className="flex gap-2">
+                  ✅ Open the <b>All Crops</b> page.
+                </li>
+                <li className="flex gap-2">
+                  ✅ Click on any crop to view full details.
+                </li>
+                <li className="flex gap-2">
+                  ✅ Scroll down to <b>Show Your Interest</b>.
+                </li>
+                <li className="flex gap-2">✅ Enter the quantity.</li>
+                <li className="flex gap-2">✅ Add an optional message.</li>
+                <li className="flex gap-2">
+                  ✅ Hit <b>Submit Interest</b>.
+                </li>
+              </ul>
+
+              <p className="text-gray-600 mt-4">
+                The owner will receive your request and may accept or reject it.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     );
 

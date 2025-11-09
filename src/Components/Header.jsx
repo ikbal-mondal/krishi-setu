@@ -74,11 +74,11 @@ export default function Header() {
           className="flex items-center gap-2 text-white font-bold text-xl"
         >
           <img
-            src="https://i.ibb.co/ZpPh5F9N/krishi-setu-logo.jpg"
+            src="https://i.ibb.co/6Rf9f6kf/krishi-setu-logo.png"
             alt="Krishi Setu Logo"
-            className="w-24 h-12 rounded"
+            className="w-18 h-12 border-sky-300 border-2 rounded"
           />
-          <span>Krishi Setu</span>
+          <span>KRISHI - SETU</span>
         </Link>
 
         {/* Desktop Menu */}

@@ -81,7 +81,7 @@ export default function Register() {
           <div className="absolute inset-0 bg-sky-700/20 blur-3xl"></div>
           <div className="z-10 text-center">
             <img
-              src="https://i.ibb.co/ZpPh5F9N/krishi-setu-logo.jpg"
+              src="https://i.ibb.co/6Rf9f6kf/krishi-setu-logo.png"
               alt="Krishi Setu Logo"
               className="w-24 mx-auto rounded mb-4 animate-pulse"
             />

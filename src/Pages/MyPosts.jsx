@@ -2,13 +2,14 @@ import { useEffect, useState, useContext } from "react";
 import Swal from "sweetalert2";
 import api from "../services/api";
 import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router";
 
 export default function MyPosts() {
   const { user } = useContext(AuthContext);
   const [crops, setCrops] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCrop, setSelectedCrop] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     if (!user) return;
 
@@ -105,14 +106,38 @@ export default function MyPosts() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-14">
-      <h2 className="text-3xl font-bold text-gray-800 mb-8">
-        🌱 My Posted Crops
-      </h2>
+      {crops.length === 0 ? (
+        ""
+      ) : (
+        <h2 className="text-3xl font-bold text-gray-800 mb-8">
+          🌱 My Posted Crops
+        </h2>
+      )}
 
       {crops.length === 0 ? (
-        <p className="text-center py-20 text-gray-500">
-          You haven’t posted any crops yet.
-        </p>
+        <div className="flex flex-col items-center justify-center py-12 text-center">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4072/4072054.png"
+            alt="no crops"
+            className="w-40 opacity-80 mb-6"
+          />
+
+          <h3 className="text-2xl font-semibold text-gray-700 mb-2">
+            No Crops Posted Yet 🌱
+          </h3>
+
+          <p className="text-gray-500 max-w-md">
+            Start by posting your first crop so buyers can find your produce
+            easily. Adding crops regularly increases visibility and trust.
+          </p>
+
+          <button
+            onClick={() => navigate("/add-crop")}
+            className="mt-6 px-6 py-3 bg-sky-600 hover:bg-sky-700 text-white rounded-lg shadow-md"
+          >
+            + Add Your First Crop
+          </button>
+        </div>
       ) : (
         <div className="overflow-x-auto border border-gray-200 shadow-lg rounded-xl">
           <table className="table w-full">

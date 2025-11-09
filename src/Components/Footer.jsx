@@ -9,11 +9,11 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-2 mb-3">
             <img
-              src="https://i.ibb.co/ZpPh5F9N/krishi-setu-logo.jpg"
-              alt="Krishi Setu logo"
-              className="w-24 h-12 rounded"
+              src="https://i.ibb.co/6Rf9f6kf/krishi-setu-logo.png"
+              alt="Krishi Setu Logo"
+              className="w-18 h-12 border-sky-300 border-2 rounded"
             />
-            <h2 className="text-2xl font-bold">Krishi Setu</h2>
+            <h2 className="text-2xl font-bold">KRISHI - SETU</h2>
           </div>
           <p className="text-sky-100 leading-relaxed text-sm">
             A digital bridge connecting farmers, traders, and consumers. Grow,

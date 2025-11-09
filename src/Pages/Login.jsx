@@ -48,10 +48,10 @@ export default function Login() {
   };
 
   return (
-    <section className="flex justify-center items-center min-h-screen bg-gradient-to-br from-sky-100 to-blue-50">
+    <section className="flex justify-center py-16 items-center min-h-screen bg-gradient-to-br from-sky-100 to-blue-50">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 mx-4">
         <img
-          src="https://i.ibb.co/ZpPh5F9N/krishi-setu-logo.jpg"
+          src="https://i.ibb.co/6Rf9f6kf/krishi-setu-logo.png"
           alt="Krishi Setu Logo"
           className="w-24 mx-auto rounded mb-4"
         />

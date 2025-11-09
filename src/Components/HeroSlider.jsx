@@ -29,7 +29,7 @@ export default function HeroSlider() {
   ];
 
   return (
-    <div className="w-full my-1 border-4 rounded-b-2xl border-sky-600 h-[50vh] md:h-[80vh] relative">
+    <div className="w-full  border-4 rounded-b-2xl border-sky-600 h-[50vh] md:h-[80vh] relative">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         autoplay={{ delay: 3500, disableOnInteraction: false }}
