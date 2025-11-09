@@ -142,17 +142,17 @@ export default function CropDetails() {
       </div>
     );
   return (
-    <section className="max-w-7xl mx-auto px-4 py-12">
+    <section className="max-w-7xl mx-auto px-3 md:px-4 py-8 md:py-12">
       {/* Back Button + Share Buttons */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex flex-wrap justify-between items-center gap-3 mb-8">
         {/* Back To Home */}
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 font-medium"
+          className="flex items-center gap-2 text-sky-600 hover:text-sky-700 text-sm md:text-base"
         >
           <img
             src="https://cdn-icons-png.flaticon.com/512/318/318276.png"
-            className="w-5"
+            className="w-4 md:w-5"
             alt="Back"
           />
           Back to Home
@@ -162,7 +162,6 @@ export default function CropDetails() {
         <div className="flex items-center gap-3">
           {/* WhatsApp Share */}
           <button
-            title=" Share One WhatsAap This Crop"
             onClick={() =>
               window.open(
                 `https://wa.me/?text=Check out this crop on Krishi Setu: ${window.location.href}`,
@@ -173,14 +172,13 @@ export default function CropDetails() {
           >
             <img
               src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+              className="w-5 md:w-6"
               alt="WhatsApp"
-              className="w-6"
             />
           </button>
 
           {/* Copy Link */}
           <button
-            title="Click to copy Crop share link "
             onClick={() => {
               navigator.clipboard.writeText(window.location.href);
               Swal.fire("Copied!", "Link copied to clipboard.", "success");
@@ -189,16 +187,16 @@ export default function CropDetails() {
           >
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE4QS7Y_Br_owcwcAnvKSypl-uNXUPQ4OlDg&s"
+              className="w-5 md:w-6"
               alt="Copy"
-              className="w-6"
             />
           </button>
         </div>
       </div>
 
       {/* Heading */}
-      <div className="mb-10">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+      <div className="mb-8 md:mb-10">
+        <h1 className="text-2xl md:text-4xl font-bold text-gray-900">
           {crop.name}
         </h1>
         <p className="text-sky-700 font-semibold flex items-center gap-2 text-lg capitalize mt-2">
@@ -207,23 +205,23 @@ export default function CropDetails() {
         </p>
       </div>
 
-      {/* Main Grid Layout */}
-      <div className="grid lg:grid-cols-3 gap-10">
-        {/* Sticky Sidebar */}
-        <div className="lg:col-span-1 sticky top-24 h-fit">
-          <div className="p-6 bg-white rounded-xl shadow border border-gray-100 space-y-6">
+      {/* Main Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+        {/* Sidebar */}
+        <div className="lg:col-span-1 lg:sticky lg:top-24 lg:h-fit space-y-6">
+          <div className="p-5 md:p-6 bg-white rounded-xl shadow border border-gray-100 space-y-6">
             {/* Price */}
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-sky-100 rounded-lg">
+              <div className="p-2 md:p-3 bg-sky-100 rounded-lg">
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/3082/3082031.png"
-                  className="w-7"
+                  className="w-6 md:w-7"
                   alt="price"
                 />
               </div>
               <div>
                 <p className="text-sm text-gray-500">Price</p>
-                <p className="text-xl font-bold text-gray-800">
+                <p className="text-lg md:text-xl font-bold text-gray-800">
                   ₹{crop.pricePerUnit}/{crop.unit}
                 </p>
               </div>
@@ -231,10 +229,10 @@ export default function CropDetails() {
 
             {/* Quantity */}
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-green-100 rounded-lg">
+              <div className="p-2 md:p-3 bg-green-100 rounded-lg">
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/992/992651.png"
-                  className="w-7"
+                  className="w-6 md:w-7"
                   alt="quantity"
                 />
               </div>
@@ -248,10 +246,10 @@ export default function CropDetails() {
 
             {/* Location */}
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-yellow-100 rounded-lg">
+              <div className="p-2 md:p-3 bg-yellow-100 rounded-lg">
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/535/535239.png"
-                  className="w-7"
+                  className="w-6 md:w-7"
                   alt="location"
                 />
               </div>
@@ -263,10 +261,10 @@ export default function CropDetails() {
 
             {/* Owner */}
             <div className="flex items-center gap-3">
-              <div className="p-3 bg-purple-100 rounded-lg">
+              <div className="p-2 md:p-3 bg-purple-100 rounded-lg">
                 <img
                   src="https://cdn-icons-png.freepik.com/512/8428/8428718.png"
-                  className="w-8"
+                  className="w-7"
                   alt="owner"
                 />
               </div>
@@ -283,19 +281,19 @@ export default function CropDetails() {
           </div>
         </div>
 
-        {/* Main Image + Description */}
-        <div className="lg:col-span-2 space-y-6">
+        {/* Main Content */}
+        <div className="md:col-span-1 lg:col-span-2 space-y-6">
           {/* Image */}
           <div className="rounded-2xl overflow-hidden shadow-md border">
             <img
               src={crop.image}
               alt={crop.name}
-              className="w-full h-[380px] object-cover"
+              className="w-full h-64 md:h-96 object-cover"
             />
           </div>
 
           {/* Description */}
-          <div className="p-6 bg-white border rounded-xl shadow">
+          <div className="p-5 md:p-6 bg-white border rounded-xl shadow">
             <h3 className="text-xl font-semibold text-gray-800 mb-3">
               Crop Description
             </h3>
@@ -306,8 +304,8 @@ export default function CropDetails() {
 
       {/* Interest Form */}
       {!isOwner && (
-        <div className="mt-16 p-10 bg-white border rounded-2xl shadow-lg">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">
+        <div className="mt-14 p-6 md:p-10 bg-white border rounded-2xl shadow-lg">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-6">
             🌾 Show Your Interest
           </h2>
 
@@ -317,6 +315,7 @@ export default function CropDetails() {
             </div>
           ) : (
             <form onSubmit={handleSubmitInterest} className="grid gap-6">
+              {/* Quantity */}
               <div>
                 <label className="font-semibold text-gray-700 mb-1 block">
                   Quantity
@@ -332,6 +331,7 @@ export default function CropDetails() {
                 />
               </div>
 
+              {/* Message */}
               <div>
                 <label className="font-semibold text-gray-700 mb-1 block">
                   Message
@@ -352,7 +352,7 @@ export default function CropDetails() {
 
               <button
                 type="submit"
-                className="btn bg-sky-600 hover:bg-sky-700 text-white w-full md:w-56"
+                className="btn bg-sky-600 hover:bg-sky-700 text-white w-full sm:w-auto"
                 disabled={submitting}
               >
                 {submitting ? "Submitting..." : "Submit Interest"}
@@ -362,10 +362,10 @@ export default function CropDetails() {
         </div>
       )}
 
-      {/* Owner Interests Section */}
+      {/* Owner Interests */}
       {isOwner && (
-        <div className="mt-20 bg-white border rounded-2xl shadow-lg p-10">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">
+        <div className="mt-14 bg-white border rounded-2xl shadow-lg p-5 md:p-10">
+          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
             📥 Received Interests
           </h3>
 
@@ -373,8 +373,8 @@ export default function CropDetails() {
             <p className="text-gray-500">No interests received yet.</p>
           ) : (
             <div className="overflow-x-auto border rounded-xl shadow">
-              <table className="table">
-                <thead className="bg-sky-600 text-white text-sm">
+              <table className="table text-sm md:text-base">
+                <thead className="bg-sky-600 text-white">
                   <tr>
                     <th>Buyer</th>
                     <th>Quantity</th>
@@ -392,16 +392,15 @@ export default function CropDetails() {
                         {i.quantity} {crop.unit}
                       </td>
                       <td>{i.message || "-"}</td>
-                      <td className="capitalize font-medium">{i.status}</td>
-
+                      <td className="capitalize">{i.status}</td>
                       <td>
                         {i.status === "pending" ? (
-                          <div className="flex gap-2">
+                          <div className="flex flex-wrap gap-2">
                             <button
                               onClick={() =>
                                 handleInterestAction(i._id, "accepted")
                               }
-                              className="btn btn-xs bg-green-600 hover:bg-green-700 text-white"
+                              className="btn btn-xs bg-green-600 text-white"
                             >
                               Accept
                             </button>
@@ -409,7 +408,7 @@ export default function CropDetails() {
                               onClick={() =>
                                 handleInterestAction(i._id, "rejected")
                               }
-                              className="btn btn-xs bg-red-600 hover:bg-red-700 text-white"
+                              className="btn btn-xs bg-red-600 text-white"
                             >
                               Reject
                             </button>
