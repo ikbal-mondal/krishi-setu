@@ -94,7 +94,9 @@ export default function AllCrops() {
     <section className="max-w-7xl mx-auto px-4 py-14">
       {/* Header + Filters */}
       <div className="flex flex-col md:flex-row  items-center gap-4 mb-10">
-        <h2 className="text-3xl font-bold text-gray-800">🌾 All Crops</h2>
+        <h2 className="text-3xl font-bold text-gray-600">
+          🌾 All Crops <span className="text-sky-500">({crops.length})</span>
+        </h2>
         <div className="relative w-full sm:w-64">
           <input
             type="text"
