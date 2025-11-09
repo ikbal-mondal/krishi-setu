@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import api from "../services/api";
 import CropCard from "../Components/CropCard";
+import SafetyNotice from "../Components/SafetyNotice";
 
 export default function AllCrops() {
   const [crops, setCrops] = useState([]);
@@ -94,7 +95,7 @@ export default function AllCrops() {
     <section className="max-w-7xl mx-auto px-4 py-14">
       <div className="grid lg:grid-cols-4 gap-10">
         {/* ================= Sidebar ================= */}
-        <aside className="lg:col-span-1 bg-white shadow-md border border-gray-100 rounded-xl p-6 h-fit">
+        <aside className="lg:col-span-1 bg-white shadow-md border border-gray-100 rounded p-6 h-fit">
           {/* Title */}
           <h2 className="text-2xl font-bold text-gray-700 mb-6">
             🔍 Filter Crops
@@ -120,7 +121,7 @@ export default function AllCrops() {
                 <button
                   key={cat}
                   onClick={() => setFilterType(cat)}
-                  className={`px-4 py-2 rounded-full border text-sm font-medium transition 
+                  className={`px-4 py-2 rounded border text-sm font-medium transition 
                 ${
                   filterType === cat
                     ? "bg-sky-600 text-white border-sky-700 shadow"
@@ -158,17 +159,17 @@ export default function AllCrops() {
         {/* ================= Main Content ================= */}
         <main className="lg:col-span-3">
           {/* Header */}
-          <h2 className="text-3xl font-bold text-gray-700 mb-6">
+          {/* <h2 className="text-3xl font-bold text-gray-700 mb-6">
             All Crops{" "}
             <span className="text-sky-500">({filteredCrops.length})</span>
-          </h2>
+          </h2> */}
 
           {filteredCrops.length === 0 ? (
             <div className="text-center py-20 text-gray-500">
               No crops found.
             </div>
           ) : (
-            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {filteredCrops.map((crop) => (
                 <CropCard key={crop._id} crop={crop} />
               ))}
@@ -176,6 +177,7 @@ export default function AllCrops() {
           )}
         </main>
       </div>
+      <SafetyNotice></SafetyNotice>
     </section>
   );
 }

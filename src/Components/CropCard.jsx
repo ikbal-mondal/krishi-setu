@@ -5,7 +5,7 @@ export default function CropCard({ crop }) {
   const { _id, name, type, pricePerUnit, unit, location, image, owner } = crop;
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 transition-all overflow-hidden group cursor-pointer hover:-translate-y-1">
+    <div className="bg-white rounded-xl shadow-sm hover:shadow-xl border border-gray-100 transition-all overflow-hidden group cursor-pointer hover:-translate-y-1">
       {/* Image Section */}
       <div className="relative overflow-hidden">
         <img

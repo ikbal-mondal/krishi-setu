@@ -74,7 +74,7 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-sky-500 via-sky-600 to-cyan-500 p-6">
+    <div className="my-8 flex items-center justify-center p-6">
       <div className="bg-white shadow-2xl rounded-3xl overflow-hidden flex flex-col md:flex-row max-w-5xl w-full">
         {/* Left side - Illustration */}
         <div className="md:w-1/2 bg-sky-600 text-white flex flex-col justify-center items-center p-8 relative overflow-hidden">
