@@ -152,7 +152,9 @@ export default function AllCrops() {
           {/* Stats Box */}
           <div className="bg-sky-50 border border-sky-100 rounded-xl p-4 mt-6">
             <p className="text-gray-700 font-medium mb-2">Total Crops:</p>
-            <p className="text-3xl font-bold text-sky-700">{crops.length}</p>
+            <p className="text-3xl font-bold text-sky-700">
+              {filteredCrops.length}
+            </p>
           </div>
         </aside>
 
@@ -165,8 +167,44 @@ export default function AllCrops() {
           </h2> */}
 
           {filteredCrops.length === 0 ? (
-            <div className="text-center py-20 text-gray-500">
-              No crops found.
+            <div className="flex flex-col items-center justify-center text-center py-24 px-4">
+              {/* Helpful Tips */}
+              <div className="my-4 p-6  border-sky-100 rounded-xl shadow-sm w-full max-w-lg">
+                <h3 className="text-lg font-semibold text-sky-700 mb-4 flex items-center gap-2">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/484/484167.png"
+                    className="w-6"
+                    alt="tips"
+                  />
+                  Tips to Find Crops
+                </h3>
+
+                <ul className="text-gray-500 space-y-2 text-left">
+                  <li> Try searching by crop name (e.g. Tomato, Rice)</li>
+                  <li>Select a different category (Vegetable, Pulse, Grain)</li>
+                  <li> Clear all filters to view all available crops</li>
+                </ul>
+              </div>
+
+              <h2 className="text-2xl md:text-3xl font-semibold text-gray-700 mb-3">
+                No Crops Found
+              </h2>
+
+              <p className="text-gray-500 max-w-md">
+                Try adjusting your search or filter criteria. You can also
+                browse other categories or reset filters.
+              </p>
+
+              <button
+                onClick={() => {
+                  setFilterType("All");
+                  setFilterLocation("All");
+                  setSearch("");
+                }}
+                className="mt-6 px-6 py-3 bg-sky-600 hover:bg-sky-700 text-white rounded-lg shadow-md transition-all duration-200"
+              >
+                Reset Filters
+              </button>
             </div>
           ) : (
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
