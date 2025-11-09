@@ -18,13 +18,13 @@ export default function HeroSlider() {
       id: 2,
       title: "Fresh Crops From Rural Fields",
       desc: "Grow together — build partnerships, sell produce, and support farmers.",
-      img: "https://img.freepik.com/free-vector/flat-design-agriculture-company-facebook-template_23-2151151386.jpg",
+      img: "https://t3.ftcdn.net/jpg/06/05/28/60/360_F_605286010_v7je41vc47s0Aeu5chVomxW0Icutrcn4.jpg",
     },
     {
       id: 3,
       title: "A Digital Bridge for Agriculture",
       desc: "Krishi Setu connects farmers, sellers, and consumers — one platform.",
-      img: "https://static.pib.gov.in/WriteReadData/userfiles/image/image004FZF6.jpg",
+      img: "https://klcgroup.vn/wp-content/uploads/2023/09/b4da1f17be7d6a23336c.jpg",
     },
   ];
 
@@ -57,7 +57,7 @@ export default function HeroSlider() {
                 </p>
 
                 <Link
-                  to="/crops"
+                  to="/all-crops"
                   className="inline-block bg-white text-sky-600 font-semibold px-5 py-2 rounded-md shadow-md hover:bg-sky-100 transition-all w-max"
                 >
                   Explore Crops →

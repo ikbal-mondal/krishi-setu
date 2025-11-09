@@ -3,15 +3,15 @@ import { FaFacebook, FaYoutube, FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="bg-sky-600 text-white mt-10">
+    <footer className="bg-sky-600 text-white ">
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Brand section */}
         <div>
           <div className="flex items-center gap-2 mb-3">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/2906/2906459.png"
+              src="https://i.ibb.co/ZpPh5F9N/krishi-setu-logo.jpg"
               alt="Krishi Setu logo"
-              className="w-8 h-8"
+              className="w-24 h-12 rounded"
             />
             <h2 className="text-2xl font-bold">Krishi Setu</h2>
           </div>

@@ -36,26 +36,31 @@ export default function Header() {
       </li>
 
       <>
-        <li>
-          <NavLink to="/add-crop" className={navLinkClass}>
-            Add Crop
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/my-posts" className={navLinkClass}>
-            My Posts
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/my-interests" className={navLinkClass}>
-            My Interests
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/profile" className={navLinkClass}>
-            Profile
-          </NavLink>
-        </li>
+        {user && (
+          <>
+            {" "}
+            <li>
+              <NavLink to="/add-crop" className={navLinkClass}>
+                Add Crop
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/my-posts" className={navLinkClass}>
+                My Posts
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/my-interests" className={navLinkClass}>
+                My Interests
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/profile" className={navLinkClass}>
+                Profile
+              </NavLink>
+            </li>
+          </>
+        )}
       </>
     </>
   );
@@ -69,9 +74,9 @@ export default function Header() {
           className="flex items-center gap-2 text-white font-bold text-xl"
         >
           <img
-            src="https://cdn-icons-png.flaticon.com/512/2906/2906459.png"
+            src="https://i.ibb.co/ZpPh5F9N/krishi-setu-logo.jpg"
             alt="Krishi Setu Logo"
-            className="w-8 h-8"
+            className="w-24 h-12 rounded"
           />
           <span>Krishi Setu</span>
         </Link>
@@ -86,8 +91,8 @@ export default function Header() {
                   to="/login"
                   className={({ isActive }) =>
                     isActive
-                      ? "bg-white text-sky-600 px-3 py-1 rounded-md font-semibold shadow-md"
-                      : "hover:bg-white hover:text-sky-600 px-3 py-1 rounded-md transition-all"
+                      ? "bg-white text-sky-600 px-3 py-2 rounded-md font-semibold shadow-md"
+                      : "hover:bg-white hover:text-sky-600 px-3 py-2 rounded-md transition-all"
                   }
                 >
                   Login
@@ -98,8 +103,8 @@ export default function Header() {
                   to="/register"
                   className={({ isActive }) =>
                     isActive
-                      ? "bg-white text-sky-600 px-3 py-1 rounded-md font-semibold shadow-md"
-                      : "hover:bg-white hover:text-sky-600 px-3 py-1 rounded-md transition-all"
+                      ? "bg-white text-sky-600 px-3 py-2 rounded-md font-semibold shadow-md"
+                      : "hover:bg-white hover:text-sky-600 px-3 py-2 rounded-md transition-all"
                   }
                 >
                   Register
@@ -110,7 +115,7 @@ export default function Header() {
             <li>
               <button
                 onClick={handleLogout}
-                className="bg-white text-sky-600 font-semibold px-3 py-1 rounded-md shadow hover:bg-sky-50 transition-all"
+                className="bg-red-500 text-white font-semibold px-3 py-2 rounded shadow hover:bg-red-400 transition-all"
               >
                 Logout
               </button>

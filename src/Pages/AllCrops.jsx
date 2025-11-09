@@ -10,6 +10,10 @@ export default function AllCrops() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  const [filterType, setFilterType] = useState("All");
+  const [filterLocation, setFilterLocation] = useState("All");
+  const [sortOption, setSortOption] = useState("newest");
+
   useEffect(() => {
     const fetchCrops = async () => {
       try {
@@ -29,23 +33,48 @@ export default function AllCrops() {
     fetchCrops();
   }, []);
 
-  const handleSearch = (e) => {
-    const query = e.target.value.toLowerCase();
-    setSearch(query);
+  const uniqueLocations = [...new Set(crops.map((c) => c.location))];
 
-    if (!query.trim()) {
-      setFilteredCrops(crops);
-      return;
+  const applyFilters = (list) => {
+    let result = [...list];
+
+    // Search filter
+    if (search.trim()) {
+      result = result.filter(
+        (crop) =>
+          crop.name.toLowerCase().includes(search.toLowerCase()) ||
+          crop.type.toLowerCase().includes(search.toLowerCase()) ||
+          crop.location.toLowerCase().includes(search.toLowerCase())
+      );
     }
 
-    const filtered = crops.filter(
-      (crop) =>
-        crop.name.toLowerCase().includes(query) ||
-        crop.type.toLowerCase().includes(query) ||
-        crop.location.toLowerCase().includes(query)
-    );
-    setFilteredCrops(filtered);
+    // Type filter
+    if (filterType !== "All") {
+      result = result.filter((crop) => crop.type === filterType);
+    }
+
+    // Location filter
+    if (filterLocation !== "All") {
+      result = result.filter((crop) => crop.location === filterLocation);
+    }
+
+    // Sorting
+    if (sortOption === "newest") {
+      result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    } else if (sortOption === "oldest") {
+      result.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+    } else if (sortOption === "price-low") {
+      result.sort((a, b) => a.pricePerUnit - b.pricePerUnit);
+    } else if (sortOption === "price-high") {
+      result.sort((a, b) => b.pricePerUnit - a.pricePerUnit);
+    }
+
+    setFilteredCrops(result);
   };
+
+  useEffect(() => {
+    applyFilters(crops);
+  }, [search, filterType, filterLocation, sortOption, crops]);
 
   if (loading) {
     return (
@@ -63,27 +92,56 @@ export default function AllCrops() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-14">
-      {/* Header + Search */}
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
+      {/* Header + Filters */}
+      <div className="flex flex-col md:flex-row  items-center gap-4 mb-10">
         <h2 className="text-3xl font-bold text-gray-800">🌾 All Crops</h2>
-
-        <div className="relative w-full md:w-1/3">
+        <div className="relative w-full sm:w-64">
           <input
             type="text"
             value={search}
-            onChange={handleSearch}
-            placeholder="Search crops by name, type or location..."
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search..."
             className="input input-bordered w-full pl-10"
           />
           <FaSearch className="absolute left-3 top-3 text-gray-400" />
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+          {/* Search */}
+
+          {/* Type Filter */}
+          <select
+            value={filterType}
+            onChange={(e) => setFilterType(e.target.value)}
+            className="select select-bordered"
+          >
+            <option value="All">All Types</option>
+            <option value="Vegetable">Vegetable</option>
+            <option value="Fruit">Fruit</option>
+            <option value="Grain">Grain</option>
+            <option value="Pulse">Pulse</option>
+            <option value="Other">Other</option>
+          </select>
+
+          {/* Location Filter */}
+          <select
+            value={filterLocation}
+            onChange={(e) => setFilterLocation(e.target.value)}
+            className="select select-bordered"
+          >
+            <option value="All">All Locations</option>
+            {uniqueLocations.map((loc, index) => (
+              <option key={index} value={loc}>
+                {loc}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 
       {/* Crop Grid */}
       {filteredCrops.length === 0 ? (
-        <div className="text-center py-20 text-gray-500">
-          No crops found matching your search.
-        </div>
+        <div className="text-center py-20 text-gray-500">No crops found.</div>
       ) : (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredCrops.map((crop) => (
