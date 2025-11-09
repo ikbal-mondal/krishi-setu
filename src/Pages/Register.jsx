@@ -5,11 +5,11 @@ import { updateProfile } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
-
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 export default function Register() {
   const { createUser, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
-
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -81,9 +81,9 @@ export default function Register() {
           <div className="absolute inset-0 bg-sky-700/20 blur-3xl"></div>
           <div className="z-10 text-center">
             <img
-              src="https://cdn-icons-png.flaticon.com/512/2906/2906459.png"
+              src="https://i.ibb.co/ZpPh5F9N/krishi-setu-logo.jpg"
               alt="Krishi Setu Logo"
-              className="w-16 mx-auto mb-4 animate-pulse"
+              className="w-24 mx-auto rounded mb-4 animate-pulse"
             />
             <h2 className="text-3xl font-bold mb-3">Join Krishi Setu</h2>
             <p className="text-sky-100">
@@ -146,14 +146,30 @@ export default function Register() {
               <label className="block text-sm font-medium text-gray-600 mb-1">
                 Password
               </label>
-              <input
-                type="password"
-                name="password"
-                value={form.password}
-                onChange={handleChange}
-                placeholder="••••••"
-                className="input input-bordered w-full focus:border-sky-500"
-              />
+
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={form.password}
+                  onChange={handleChange}
+                  placeholder="••••••"
+                  className="input input-bordered w-full pr-10 focus:border-sky-500"
+                />
+
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-2 text-gray-600 hover:text-gray-800"
+                >
+                  {showPassword ? (
+                    <AiFillEyeInvisible size={22} />
+                  ) : (
+                    <AiFillEye size={22} />
+                  )}
+                </button>
+              </div>
+
               <small className="text-gray-500 text-xs">
                 Must include 1 uppercase, 1 lowercase, and at least 6
                 characters.

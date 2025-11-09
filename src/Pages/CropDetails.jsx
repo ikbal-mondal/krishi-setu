@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import api from "../services/api";
 import { AuthContext } from "../context/AuthContext";
 import Swal from "sweetalert2";
@@ -141,65 +141,186 @@ export default function CropDetails() {
         {error || "Crop not found."}
       </div>
     );
-
   return (
-    <section className="max-w-6xl mx-auto px-4 py-12">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-sky-600 to-blue-500 rounded-xl p-6 md:p-10 text-white shadow-md mb-10">
-        <h1 className="text-3xl md:text-4xl font-bold mb-2">{crop.name}</h1>
-        <p className="text-lg capitalize">{crop.type}</p>
-        <p className="mt-3 text-sm">
-          📍 <span className="font-medium">{crop.location}</span>
+    <section className="max-w-7xl mx-auto px-4 py-12">
+      {/* Back Button + Share Buttons */}
+      <div className="flex justify-between items-center mb-6">
+        {/* Back To Home */}
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 font-medium"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/318/318276.png"
+            className="w-5"
+            alt="Back"
+          />
+          Back to Home
+        </Link>
+
+        {/* Share Buttons */}
+        <div className="flex items-center gap-3">
+          {/* WhatsApp Share */}
+          <button
+            title=" Share One WhatsAap This Crop"
+            onClick={() =>
+              window.open(
+                `https://wa.me/?text=Check out this crop on Krishi Setu: ${window.location.href}`,
+                "_blank"
+              )
+            }
+            className="p-2 bg-green-500 hover:bg-green-600 rounded-lg"
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+              alt="WhatsApp"
+              className="w-6"
+            />
+          </button>
+
+          {/* Copy Link */}
+          <button
+            title="Click to copy Crop share link "
+            onClick={() => {
+              navigator.clipboard.writeText(window.location.href);
+              Swal.fire("Copied!", "Link copied to clipboard.", "success");
+            }}
+            className="p-2 bg-gray-200 hover:bg-gray-300 rounded-lg"
+          >
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE4QS7Y_Br_owcwcAnvKSypl-uNXUPQ4OlDg&s"
+              alt="Copy"
+              className="w-6"
+            />
+          </button>
+        </div>
+      </div>
+
+      {/* Heading */}
+      <div className="mb-10">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+          {crop.name}
+        </h1>
+        <p className="text-sky-700 font-semibold flex items-center gap-2 text-lg capitalize mt-2">
+          <span className="w-3 h-3 bg-sky-600 rounded-full"></span>
+          {crop.type}
         </p>
       </div>
 
-      {/* Info Grid */}
-      <div className="grid md:grid-cols-2 gap-8 items-start">
-        {/* Image */}
-        <div>
-          <img
-            src={crop.image}
-            alt={crop.name}
-            className="rounded-xl w-full object-cover h-80 shadow-lg"
-          />
+      {/* Main Grid Layout */}
+      <div className="grid lg:grid-cols-3 gap-10">
+        {/* Sticky Sidebar */}
+        <div className="lg:col-span-1 sticky top-24 h-fit">
+          <div className="p-6 bg-white rounded-xl shadow border border-gray-100 space-y-6">
+            {/* Price */}
+            <div className="flex items-center gap-3">
+              <div className="p-3 bg-sky-100 rounded-lg">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/3082/3082031.png"
+                  className="w-7"
+                  alt="price"
+                />
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Price</p>
+                <p className="text-xl font-bold text-gray-800">
+                  ₹{crop.pricePerUnit}/{crop.unit}
+                </p>
+              </div>
+            </div>
+
+            {/* Quantity */}
+            <div className="flex items-center gap-3">
+              <div className="p-3 bg-green-100 rounded-lg">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/992/992651.png"
+                  className="w-7"
+                  alt="quantity"
+                />
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Available Quantity</p>
+                <p className="text-lg font-semibold">
+                  {crop.quantity} {crop.unit}
+                </p>
+              </div>
+            </div>
+
+            {/* Location */}
+            <div className="flex items-center gap-3">
+              <div className="p-3 bg-yellow-100 rounded-lg">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/535/535239.png"
+                  className="w-7"
+                  alt="location"
+                />
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Location</p>
+                <p className="text-lg font-semibold">{crop.location}</p>
+              </div>
+            </div>
+
+            {/* Owner */}
+            <div className="flex items-center gap-3">
+              <div className="p-3 bg-purple-100 rounded-lg">
+                <img
+                  src="https://cdn-icons-png.freepik.com/512/8428/8428718.png"
+                  className="w-8"
+                  alt="owner"
+                />
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Posted By</p>
+                <p className="text-lg font-semibold text-gray-800">
+                  {crop.owner?.ownerName}
+                </p>
+                <p className="text-sm text-gray-500">
+                  {crop.owner?.ownerEmail}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Info */}
-        <div className="space-y-3">
-          <p className="text-lg">
-            <span className="font-semibold">Price:</span> ₹{crop.pricePerUnit}/
-            {crop.unit}
-          </p>
-          <p className="text-lg">
-            <span className="font-semibold">Available Quantity:</span>{" "}
-            {crop.quantity} {crop.unit}
-          </p>
-          <p>
-            <span className="font-semibold">Description:</span>{" "}
-            {crop.description}
-          </p>
-          <p>
-            <span className="font-semibold">Posted By:</span>{" "}
-            {crop.owner?.ownerName} ({crop.owner?.ownerEmail})
-          </p>
+        {/* Main Image + Description */}
+        <div className="lg:col-span-2 space-y-6">
+          {/* Image */}
+          <div className="rounded-2xl overflow-hidden shadow-md border">
+            <img
+              src={crop.image}
+              alt={crop.name}
+              className="w-full h-[380px] object-cover"
+            />
+          </div>
+
+          {/* Description */}
+          <div className="p-6 bg-white border rounded-xl shadow">
+            <h3 className="text-xl font-semibold text-gray-800 mb-3">
+              Crop Description
+            </h3>
+            <p className="text-gray-600 leading-relaxed">{crop.description}</p>
+          </div>
         </div>
       </div>
 
       {/* Interest Form */}
       {!isOwner && (
-        <div className="mt-12 bg-sky-50 border border-sky-200 rounded-xl p-6 shadow-md">
-          <h3 className="text-2xl font-semibold text-sky-700 mb-4">
-            🌾 Show Interest
-          </h3>
+        <div className="mt-16 p-10 bg-white border rounded-2xl shadow-lg">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">
+            🌾 Show Your Interest
+          </h2>
 
           {hasSentInterest ? (
-            <div className="text-sky-700 font-medium">
-              ✅ You’ve already sent an interest for this crop.
+            <div className="text-green-600 font-semibold text-lg">
+              ✅ Your interest has already been submitted.
             </div>
           ) : (
-            <form onSubmit={handleSubmitInterest} className="space-y-4">
+            <form onSubmit={handleSubmitInterest} className="grid gap-6">
               <div>
-                <label className="block font-semibold mb-1">Quantity</label>
+                <label className="font-semibold text-gray-700 mb-1 block">
+                  Quantity
+                </label>
                 <input
                   type="number"
                   min="1"
@@ -212,29 +333,27 @@ export default function CropDetails() {
               </div>
 
               <div>
-                <label className="block font-semibold mb-1">Message</label>
+                <label className="font-semibold text-gray-700 mb-1 block">
+                  Message
+                </label>
                 <textarea
+                  rows={3}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   className="textarea textarea-bordered w-full"
-                  rows="3"
-                  placeholder="Optional message to the owner..."
+                  placeholder="Write a message..."
                 />
               </div>
 
-              <div>
-                <p className="font-medium text-gray-700">
-                  💰 Total Price:{" "}
-                  <span className="text-sky-700 font-semibold">
-                    ₹{totalPrice || 0}
-                  </span>
-                </p>
+              <div className="text-lg font-semibold">
+                Total Price:
+                <span className="text-sky-600 ml-2">₹{totalPrice || 0}</span>
               </div>
 
               <button
                 type="submit"
+                className="btn bg-sky-600 hover:bg-sky-700 text-white w-full md:w-56"
                 disabled={submitting}
-                className="btn bg-sky-600 hover:bg-sky-700 text-white px-8"
               >
                 {submitting ? "Submitting..." : "Submit Interest"}
               </button>
@@ -243,29 +362,28 @@ export default function CropDetails() {
         </div>
       )}
 
-      {/* Received Interests (for Owner) */}
+      {/* Owner Interests Section */}
       {isOwner && (
-        <div className="mt-14">
-          <h3 className="text-2xl font-semibold text-sky-700 mb-4">
-            📋 Received Interests
+        <div className="mt-20 bg-white border rounded-2xl shadow-lg p-10">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            📥 Received Interests
           </h3>
 
-          {(!crop.interests || crop.interests.length === 0) && (
+          {!crop.interests || crop.interests.length === 0 ? (
             <p className="text-gray-500">No interests received yet.</p>
-          )}
-
-          {crop.interests && crop.interests.length > 0 && (
-            <div className="overflow-x-auto shadow-lg rounded-xl border border-gray-200">
-              <table className="table w-full">
-                <thead className="bg-sky-600 text-white">
+          ) : (
+            <div className="overflow-x-auto border rounded-xl shadow">
+              <table className="table">
+                <thead className="bg-sky-600 text-white text-sm">
                   <tr>
-                    <th>Buyer Name</th>
+                    <th>Buyer</th>
                     <th>Quantity</th>
                     <th>Message</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
+
                 <tbody>
                   {crop.interests.map((i) => (
                     <tr key={i._id}>
@@ -275,6 +393,7 @@ export default function CropDetails() {
                       </td>
                       <td>{i.message || "-"}</td>
                       <td className="capitalize font-medium">{i.status}</td>
+
                       <td>
                         {i.status === "pending" ? (
                           <div className="flex gap-2">
@@ -282,7 +401,7 @@ export default function CropDetails() {
                               onClick={() =>
                                 handleInterestAction(i._id, "accepted")
                               }
-                              className="btn btn-sm bg-green-500 text-white hover:bg-green-600"
+                              className="btn btn-xs bg-green-600 hover:bg-green-700 text-white"
                             >
                               Accept
                             </button>
@@ -290,13 +409,13 @@ export default function CropDetails() {
                               onClick={() =>
                                 handleInterestAction(i._id, "rejected")
                               }
-                              className="btn btn-sm bg-red-500 text-white hover:bg-red-600"
+                              className="btn btn-xs bg-red-600 hover:bg-red-700 text-white"
                             >
                               Reject
                             </button>
                           </div>
                         ) : (
-                          <span className="text-gray-500 italic">-</span>
+                          <span className="text-gray-400">—</span>
                         )}
                       </td>
                     </tr>

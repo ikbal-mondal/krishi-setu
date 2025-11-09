@@ -3,13 +3,13 @@ import { Link, useNavigate, useLocation } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 import { FcGoogle } from "react-icons/fc";
-
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 export default function Login() {
   const { loginUser, signInWithGoogle } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
+  const [showPassword, setShowPassword] = useState(false);
   const from = location.state?.from?.pathname || "/";
 
   const handleLogin = async (e) => {
@@ -50,15 +50,20 @@ export default function Login() {
   return (
     <section className="flex justify-center items-center min-h-screen bg-gradient-to-br from-sky-100 to-blue-50">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 mx-4">
+        <img
+          src="https://i.ibb.co/ZpPh5F9N/krishi-setu-logo.jpg"
+          alt="Krishi Setu Logo"
+          className="w-24 mx-auto rounded mb-4"
+        />
         <h2 className="text-3xl font-bold text-center text-sky-600 mb-6">
           Login to Your Account
         </h2>
 
-        <form onSubmit={handleLogin} className="space-y-5">
+        <form onSubmit={handleLogin} className="space-y-3">
           {/* Email */}
           <div>
             <label className="block font-semibold mb-1 text-gray-700">
-              Email Address
+              Enter Address
             </label>
             <input
               type="email"
@@ -72,19 +77,34 @@ export default function Login() {
           {/* Password */}
           <div>
             <label className="block font-semibold mb-1 text-gray-700">
-              Password
+              Enter Password
             </label>
-            <input
-              type="password"
-              name="password"
-              placeholder="••••••••"
-              className="input input-bordered w-full"
-              required
-            />
+
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="••••••••"
+                className="input input-bordered w-full pr-10"
+                required
+              />
+
+              <button
+                type="button"
+                className="absolute right-3 top-2.5 text-gray-600 hover:text-gray-800"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? (
+                  <AiFillEyeInvisible size={20} />
+                ) : (
+                  <AiFillEye size={20} />
+                )}
+              </button>
+            </div>
           </div>
 
           {/* Forgot Password */}
-          <div className="text-right text-sm text-sky-600 hover:underline">
+          <div className="text-left text-sm text-sky-600 hover:underline">
             <Link to="/forgot-password">Forgot password?</Link>
           </div>
 
