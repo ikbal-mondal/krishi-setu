@@ -1,6 +1,6 @@
 export default function SafetyNotice() {
   return (
-    <div className="my-8 bg-gradient-to-r from-yellow-50 via-yellow-100 to-yellow-50 border border-yellow-200 rounded-2xl p-8 shadow-lg">
+    <div className="my-8 bg-gradient-to-r from-yellow-50 via-sky-100 to-yellow-50 border border-sky-200 rounded-2xl p-8 shadow-lg">
       {/* Heading */}
       <div className="flex items-center gap-3 mb-6">
         <div className="p-3 bg-yellow-300/40 rounded-full shadow">
@@ -10,7 +10,7 @@ export default function SafetyNotice() {
             className="w-7"
           />
         </div>
-        <h2 className="text-2xl md:text-3xl font-bold text-yellow-800">
+        <h2 className="text-2xl md:text-3xl font-bold text-sky-800">
           Safety & Awareness Guidelines
         </h2>
       </div>

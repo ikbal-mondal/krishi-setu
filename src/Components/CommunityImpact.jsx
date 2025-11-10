@@ -51,15 +51,17 @@ export default function CommunityImpact() {
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              className="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/20 transition-all shadow-md"
+              className="bg-white backdrop-blur-md rounded-2xl p-8 hover:bg-white/80 transition-all shadow-md"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="mb-4 flex justify-center">{stat.icon}</div>
-              <h3 className="text-2xl font-bold mb-1">{stat.value}</h3>
-              <p className="font-semibold mb-1">{stat.title}</p>
-              <p className="text-sm text-sky-100">{stat.desc}</p>
+              <div className="mb-4 flex justify-center ">{stat.icon}</div>
+              <h3 className="text-2xl font-bold mb-1 text-sky-700">
+                {stat.value}
+              </h3>
+              <p className="font-semibold mb-1 text-sky-700">{stat.title}</p>
+              <p className="text-sm text-sky-700">{stat.desc}</p>
             </motion.div>
           ))}
         </div>

@@ -52,7 +52,7 @@ export default function AgroNews() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4">
-            🌾 Latest Agro News & Insights
+            Latest Agro News & Insights
           </h2>
           <p className="text-gray-500 text-lg max-w-3xl mx-auto leading-relaxed">
             Get inspired by the latest updates, innovations, and policies

@@ -73,7 +73,7 @@ export default function FarmerStories() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          🌾 Farmer Success Stories
+          Farmer Success Stories
         </motion.h2>
         <p className="text-gray-500 text-lg mb-12 max-w-2xl mx-auto">
           Real stories from farmers who transformed their farming and trade

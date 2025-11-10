@@ -54,10 +54,10 @@ export default function LatestCrops() {
   return (
     <section className="max-w-7xl mx-auto px-4 py-14">
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-800">🌱 Latest Crops</h2>
+        <h2 className="text-3xl font-bold text-gray-600"> Latest Crops</h2>
         <Link
           to="/all-crops"
-          className="text-sky-600 font-medium hover:underline"
+          className="text-sky-600 border-sky-600 hover:text-white hover:bg-sky-600 border-2 p-2 rounded font-medium px-6"
         >
           View All →
         </Link>

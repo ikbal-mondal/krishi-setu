@@ -147,20 +147,24 @@ export default function CropDetails() {
       <div className="flex flex-wrap justify-between items-center gap-3 mb-8">
         {/* Back To Home */}
         <Link
-          to="/"
-          className="flex items-center gap-2 text-sky-600 hover:text-sky-700 text-sm md:text-base"
+          to="/all-crops"
+          className="flex items-center gap-2 text-sky-600 hover:text-white border-2 border-sky-600 p-2 hover:bg-sky-400  rounded text-sm md:text-base"
         >
           <img
             src="https://cdn-icons-png.flaticon.com/512/318/318276.png"
             className="w-4 md:w-5"
             alt="Back"
           />
-          Back to Home
+          Back
         </Link>
 
         {/* Share Buttons */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 border-2 p-2 text-sky-600 rounded">
           {/* WhatsApp Share */}
+          <span className="text-md text-sky-600 font-bold">
+            {" "}
+            Share This Crop:-
+          </span>
           <button
             onClick={() =>
               window.open(
@@ -168,8 +172,9 @@ export default function CropDetails() {
                 "_blank"
               )
             }
-            className="p-2 bg-green-500 hover:bg-green-600 rounded-lg"
+            className="p-2 flex gap-2 justify-center items-center bg-green-500 hover:bg-green-600 rounded-lg"
           >
+            <span className="text-sm text-white">Share WhatsApp</span>
             <img
               src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
               className="w-5 md:w-6"
@@ -183,11 +188,12 @@ export default function CropDetails() {
               navigator.clipboard.writeText(window.location.href);
               Swal.fire("Copied!", "Link copied to clipboard.", "success");
             }}
-            className="p-2 bg-gray-200 hover:bg-gray-300 rounded-lg"
+            className="p-2 flex gap-2 justify-center items-center  bg-sky-400 hover:bg-gray-500 rounded-lg"
           >
+            <span className="text-sm text-white ">Copy Link</span>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE4QS7Y_Br_owcwcAnvKSypl-uNXUPQ4OlDg&s"
-              className="w-5 md:w-6"
+              className="w-4 md:w-4"
               alt="Copy"
             />
           </button>
