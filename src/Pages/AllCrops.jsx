@@ -97,6 +97,7 @@ export default function AllCrops() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-14">
+      <title> All Crops | Krishi-Setu </title>
       <div className="grid lg:grid-cols-4 gap-10">
         {/* ================= Sidebar ================= */}
         <aside className="lg:col-span-1 bg-white shadow-md border border-gray-100 rounded p-6 h-fit">

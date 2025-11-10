@@ -106,11 +106,12 @@ export default function MyPosts() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-14">
+      <title> My Posts | Krishi-Setu </title>
       {crops.length === 0 ? (
         ""
       ) : (
         <h2 className="text-3xl font-bold text-gray-800 mb-8">
-           My Posted Crops
+          My Posted Crops
         </h2>
       )}
 
@@ -123,7 +124,7 @@ export default function MyPosts() {
           />
 
           <h3 className="text-2xl font-semibold text-gray-700 mb-2">
-            No Crops Posted Yet 
+            No Crops Posted Yet
           </h3>
 
           <p className="text-gray-500 max-w-md">

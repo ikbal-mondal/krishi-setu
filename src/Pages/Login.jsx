@@ -49,6 +49,7 @@ export default function Login() {
 
   return (
     <section className="flex justify-center py-16 items-center min-h-screen bg-gradient-to-br from-sky-100 to-blue-50">
+      <title> Login | Krishi-Setu </title>
       <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 mx-4">
         <img
           src="https://i.ibb.co/6Rf9f6kf/krishi-setu-logo.png"

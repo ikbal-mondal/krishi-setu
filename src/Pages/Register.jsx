@@ -75,6 +75,7 @@ export default function Register() {
 
   return (
     <div className="my-8 flex items-center justify-center p-6">
+      <title> Register | Krishi-Setu </title>
       <div className="bg-white shadow-2xl rounded-3xl overflow-hidden flex flex-col md:flex-row max-w-5xl w-full">
         {/* Left side - Illustration */}
         <div className="md:w-1/2 bg-sky-600 text-white flex flex-col justify-center items-center p-8 relative overflow-hidden">
@@ -88,7 +89,7 @@ export default function Register() {
             <h2 className="text-3xl font-bold mb-3">Join Krishi Setu</h2>
             <p className="text-sky-100">
               Connect with farmers, traders, and agri-enthusiasts. Grow your
-              agro-network today 
+              agro-network today
             </p>
           </div>
         </div>

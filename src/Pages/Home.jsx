@@ -10,6 +10,7 @@ import SafetyNotice from "../Components/SafetyNotice";
 const Home = () => {
   return (
     <div>
+      <title> Home | Krishi-Setu </title>
       <HeroSlider></HeroSlider>
       <LatestCrops></LatestCrops>
       <HowItWorks></HowItWorks>

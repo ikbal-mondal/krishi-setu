@@ -56,6 +56,7 @@ export default function Profile() {
 
   return (
     <section className="max-w-5xl mx-auto px-4 py-12">
+      <title> Profile | Krishi-Setu </title>
       {/* Banner */}
       <div className="h-36 md:h-48 bg-gradient-to-r from-sky-600 via-sky-500 to-cyan-500 rounded-xl shadow-lg mb-14"></div>
 

@@ -64,6 +64,7 @@ export default function MyInterests() {
   if (interests.length === 0)
     return (
       <div className=" max-w-4xl  mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 py-16">
+        <title> My Interests | Krishi-Setu </title>
         {/* LEFT — Empty State Illustration & CTA */}
         <div className="flex flex-col mx-4 justify-center text-center md:text-left items-center md:items-start">
           <h3 className="text-3xl font-semibold text-gray-800 mb-3">
