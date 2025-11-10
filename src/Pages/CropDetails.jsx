@@ -186,7 +186,11 @@ export default function CropDetails() {
           <button
             onClick={() => {
               navigator.clipboard.writeText(window.location.href);
-              Swal.fire("Copied!", "Link copied to clipboard.", "success");
+              Swal.fire(
+                "Copied! You can share this link Any Whore ",
+                "Link copied to clipboard.",
+                "success"
+              );
             }}
             className="p-2 flex gap-2 justify-center items-center  bg-sky-400 hover:bg-gray-500 rounded-lg"
           >

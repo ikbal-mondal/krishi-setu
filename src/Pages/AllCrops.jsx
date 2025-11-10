@@ -3,6 +3,10 @@ import { FaSearch } from "react-icons/fa";
 import api from "../services/api";
 import CropCard from "../Components/CropCard";
 import SafetyNotice from "../Components/SafetyNotice";
+import HeroSlider from "../Components/HeroSlider";
+import AdCarousel from "../Components/AdCarousel";
+import AdCard from "../Components/AdCard";
+import AdSlider from "../Components/AdSlider";
 
 export default function AllCrops() {
   const [crops, setCrops] = useState([]);
@@ -155,6 +159,14 @@ export default function AllCrops() {
             <p className="text-3xl font-bold text-sky-700">
               {filteredCrops.length}
             </p>
+          </div>
+          <div className="hidden md:block">
+            <AdCarousel></AdCarousel>
+          </div>
+
+          <div className="hidden lg:block">
+            <AdCard></AdCard>
+            <AdSlider></AdSlider>
           </div>
         </aside>
 
