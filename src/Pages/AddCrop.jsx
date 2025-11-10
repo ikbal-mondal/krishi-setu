@@ -85,7 +85,7 @@ export default function AddCrop() {
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold text-gray-900">Add New Crop</h2>
         <p className="text-gray-500 mt-2">
-          Fill out the details below to post your crop listing 🌾
+          Fill out the details below to post your crop listing
         </p>
       </div>
 

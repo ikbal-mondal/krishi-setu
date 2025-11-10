@@ -33,7 +33,6 @@ export default function AdCarousel() {
     <div className="bg-white rounded-xl shadow-md my-8 overflow-hidden border border-gray-200 p-2">
       <h3 className="text-lg font-semibold   mb-3 px-2">Ad</h3>
 
-      {/* Image */}
       <a href={ads[index].link} target="_blank" rel="noopener noreferrer">
         <img
           src={ads[index].img}

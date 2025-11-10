@@ -25,7 +25,7 @@ export default function ForgotPassword() {
       );
       setEmail("");
     } catch (err) {
-      console.error("❌ Reset Error:", err);
+      console.error(" Reset Error:", err);
       Swal.fire(
         "Error",
         err.message || "Failed to send password reset email.",

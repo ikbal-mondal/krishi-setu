@@ -15,9 +15,7 @@ export default function SafetyNotice() {
         </h2>
       </div>
 
-      {/* Content Grid */}
       <div className="grid md:grid-cols-2 gap-6">
-        {/* Card 1 */}
         <div className="flex items-start gap-4 bg-white border border-yellow-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
           <img
             src="https://cdn-icons-png.flaticon.com/512/992/992683.png"
@@ -35,7 +33,6 @@ export default function SafetyNotice() {
           </div>
         </div>
 
-        {/* Card 2 */}
         <div className="flex items-start gap-4 bg-white border border-yellow-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
           <img
             src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png"
@@ -53,7 +50,6 @@ export default function SafetyNotice() {
           </div>
         </div>
 
-        {/* Card 3 */}
         <div className="flex items-start gap-4 bg-white border border-yellow-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
           <img
             src="https://cdn-icons-png.flaticon.com/512/2893/2893047.png"
@@ -71,7 +67,6 @@ export default function SafetyNotice() {
           </div>
         </div>
 
-        {/* Card 4 */}
         <div className="flex items-start gap-4 bg-white border border-yellow-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
           <img
             src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png"
@@ -89,7 +84,6 @@ export default function SafetyNotice() {
         </div>
       </div>
 
-      {/* Bottom Tagline */}
       <div className="mt-8 text-center">
         <p className="text-sm md:text-base text-gray-800 font-medium">
           🔒 Your safety is our priority — Stay informed. Stay secure. Stay

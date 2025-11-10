@@ -19,7 +19,6 @@ export default function Profile() {
       </div>
     );
 
-  // ✅ Handle logout
   const handleLogout = async () => {
     try {
       await signOutUser();

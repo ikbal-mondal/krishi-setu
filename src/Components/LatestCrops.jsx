@@ -12,13 +12,13 @@ export default function LatestCrops() {
     const fetchCrops = async () => {
       try {
         const res = await api.get("/crops");
-        // ✅ Sort newest first and slice only latest 6
+
         const sorted = (res.data || []).sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         );
         setCrops(sorted.slice(0, 6));
       } catch (err) {
-        console.error("❌ Error fetching crops:", err);
+        console.error(" Error fetching crops:", err);
         setError("Failed to load latest crops.");
       } finally {
         setLoading(false);
@@ -27,7 +27,6 @@ export default function LatestCrops() {
     fetchCrops();
   }, []);
 
-  // Loading UI
   if (loading) {
     return (
       <div className="flex justify-center items-center py-20">
@@ -36,21 +35,18 @@ export default function LatestCrops() {
     );
   }
 
-  // Error state
   if (error) {
     return (
       <div className="text-center text-red-600 font-medium py-10">{error}</div>
     );
   }
 
-  // Empty state
   if (crops.length === 0) {
     return (
       <div className="text-center py-20 text-gray-500">No crops found yet.</div>
     );
   }
 
-  // ✅ Display crops
   return (
     <section className="max-w-7xl mx-auto px-4 py-14">
       <div className="flex justify-between items-center mb-8">

@@ -122,7 +122,6 @@ export default function AgroNews() {
           </div>
         </div>
 
-        {/* Read More CTA */}
         <motion.div
           className="text-center mt-16"
           initial={{ opacity: 0, y: 20 }}

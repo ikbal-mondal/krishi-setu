@@ -8,7 +8,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "../firebase/firebase.config"; // ✅ fixed import
+import { auth } from "../firebase/firebase.config";
 import { AuthContext } from "./AuthContext";
 
 const googleProvider = new GoogleAuthProvider();

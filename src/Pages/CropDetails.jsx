@@ -22,7 +22,7 @@ export default function CropDetails() {
         const res = await api.get(`/crops/${id}`);
         setCrop(res.data);
       } catch (err) {
-        console.error("❌ Error fetching crop:", err);
+        console.error(" Error fetching crop:", err);
         setError("Failed to load crop details.");
       } finally {
         setLoading(false);
@@ -145,7 +145,7 @@ export default function CropDetails() {
     <section className="max-w-7xl mx-auto px-3 md:px-4 py-8 md:py-12">
       {/* Back Button + Share Buttons */}
       <div className="flex flex-wrap justify-between items-center gap-3 mb-8">
-        {/* Back To Home */}
+        
         <Link
           to="/all-crops"
           className="flex items-center gap-2 text-sky-600 hover:text-white border-2 border-sky-600 p-2 hover:bg-sky-400  rounded text-sm md:text-base"
@@ -316,7 +316,7 @@ export default function CropDetails() {
       {!isOwner && (
         <div className="mt-14 p-6 md:p-10 bg-white border rounded-2xl shadow-lg">
           <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-6">
-            🌾 Show Your Interest
+             Show Your Interest
           </h2>
 
           {hasSentInterest ? (

@@ -29,7 +29,7 @@ export default function AllCrops() {
         setCrops(sorted);
         setFilteredCrops(sorted);
       } catch (err) {
-        console.error("❌ Error fetching crops:", err);
+        console.error(" Error fetching crops:", err);
         setError("Failed to load crops.");
       } finally {
         setLoading(false);

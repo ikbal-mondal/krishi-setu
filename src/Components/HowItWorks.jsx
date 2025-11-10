@@ -72,7 +72,6 @@ export default function HowItWorks() {
           ))}
         </div>
 
-        {/* Call-to-action */}
         <motion.div
           className="mt-16"
           initial={{ opacity: 0, y: 20 }}

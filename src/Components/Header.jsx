@@ -68,7 +68,7 @@ export default function Header() {
   return (
     <nav className="sticky top-0 z-50 bg-sky-600 shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        {/* Logo and Brand */}
+       
         <Link
           to="/"
           className="flex items-center gap-2 text-white font-bold text-xl"

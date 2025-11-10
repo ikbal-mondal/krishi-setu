@@ -49,7 +49,6 @@ export default function CropCard({ crop }) {
         {/* Divider */}
         <div className="h-[1px] w-full bg-gray-100"></div>
 
-        {/* CTA Button */}
         <Link
           to={`/crops/${_id}`}
           className="block w-full text-center bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-700 hover:to-cyan-700 text-white font-medium py-2.5 rounded-lg transition"

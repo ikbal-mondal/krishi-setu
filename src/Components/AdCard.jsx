@@ -21,12 +21,10 @@ export default function AdCard() {
           />
         </button>
 
-        {/* Ad Badge */}
         <span className="absolute top-2 left-2 bg-yellow-400 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-sm">
           AD
         </span>
 
-        {/* Icon */}
         <div className="flex justify-center mb-4">
           <img
             src="https://cdn-icons-png.flaticon.com/512/7659/7659025.png"
@@ -35,7 +33,6 @@ export default function AdCard() {
           />
         </div>
 
-        {/* Title */}
         <h3 className="text-lg font-bold text-gray-800 mb-2">
           🌾 Buy Fresh Organic Seeds
         </h3>
@@ -46,7 +43,6 @@ export default function AdCard() {
           delivered to your doorstep.
         </p>
 
-        {/* CTA Button */}
         <a
           href="#"
           target="_blank"

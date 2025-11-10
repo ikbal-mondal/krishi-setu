@@ -5,7 +5,6 @@ export default function Footer() {
   return (
     <footer className="bg-sky-600 text-white ">
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Brand section */}
         <div>
           <div className="flex items-center gap-2 mb-3">
             <img

@@ -22,7 +22,7 @@ export default function Register() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // ✅ password validation
+  //  password validation
   const validatePassword = (password) => {
     const hasUpper = /[A-Z]/.test(password);
     const hasLower = /[a-z]/.test(password);
@@ -62,7 +62,7 @@ export default function Register() {
     }
   };
 
-  // ✅ Google login
+  //  Google login
   const handleGoogle = async () => {
     try {
       await signInWithGoogle("google");
@@ -88,7 +88,7 @@ export default function Register() {
             <h2 className="text-3xl font-bold mb-3">Join Krishi Setu</h2>
             <p className="text-sky-100">
               Connect with farmers, traders, and agri-enthusiasts. Grow your
-              agro-network today 🌱
+              agro-network today 
             </p>
           </div>
         </div>

@@ -37,14 +37,12 @@ export default function NotFound() {
           you back to something that works.
         </motion.p>
 
-        {/* Back to Home Button */}
         <motion.div
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.7 }}
         ></motion.div>
 
-        {/* Decorative Shape */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 0.4, y: 0 }}

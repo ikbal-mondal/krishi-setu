@@ -18,7 +18,7 @@ export default function MyPosts() {
         const res = await api.get("/my-posts");
         setCrops(res.data || []);
       } catch (err) {
-        console.error("❌ Error fetching my posts:", err);
+        console.error(" Error fetching my posts:", err);
         Swal.fire("Error", "Failed to load your crops.", "error");
       } finally {
         setLoading(false);
@@ -110,7 +110,7 @@ export default function MyPosts() {
         ""
       ) : (
         <h2 className="text-3xl font-bold text-gray-800 mb-8">
-          🌱 My Posted Crops
+           My Posted Crops
         </h2>
       )}
 
@@ -123,7 +123,7 @@ export default function MyPosts() {
           />
 
           <h3 className="text-2xl font-semibold text-gray-700 mb-2">
-            No Crops Posted Yet 🌱
+            No Crops Posted Yet 
           </h3>
 
           <p className="text-gray-500 max-w-md">
@@ -157,7 +157,7 @@ export default function MyPosts() {
                   key={crop._id}
                   className="hover:bg-sky-50 transition duration-150"
                 >
-                  {/* ✅ Crop Image + Name */}
+                  {/*  Crop Image + Name */}
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
@@ -213,7 +213,7 @@ export default function MyPosts() {
         </div>
       )}
 
-      {/* ✅ Edit Modal */}
+      {/*  Edit Modal */}
       {selectedCrop && (
         <dialog id="editModal" open className="modal">
           <div className="modal-box max-w-2xl">
